@@ -27,8 +27,17 @@
   (loop
     (if (game-over)
         (break)
-        (displayln "play game" [(set! used-turns (+ used-turns 1))] [(> used-turns 2) (set! game-over #t)])))
-        )))
+        (begin
+            (displayln "play game")
+            (set! used-turns (+ used-turns 1))
+            (if (>= used-turns max-turns)
+                (set! game-over #t)
+                (displayln "keep playing!")
+            )
+        )
+     )
+  )
+)
 
 
 (define (get-guess)
