@@ -18,6 +18,7 @@
   (define max-number 100)
   (define secret-number (random (+ max-number 1)))
   (define used-turns 0)
+  (define player-guess -1)
   (define game-over #false)
 
   (displayln "Welcome to the guessing game!")
@@ -28,9 +29,15 @@
 )
 
 (define (play-game-loop) ; Main game loop function
-  (loop
-    (if game-over
-        (break)
+  (loop play ([secret-number secret-number] [guess player-guess] [current-turn used-turns] [max-turns max-turns])
+    (cond
+        (begin
+            (set! current-turn (+ current-turn 1))
+        )
+        [(> current-turn max-turns) #false] ;; game-over because out of turns
+        [(= secret)] ;; game-over because you won
+        [] ;;  still playing
+        [] ;; ERROR: this condition should never be reached
         (begin
           (displayln "Please enter your guess between ~a and ~a:" min-number max-number)
           (handle-user-guess) ; Call the user input and guess checking function
@@ -86,7 +93,10 @@
     [(not boolean? a-boolean) (#f)]
     [else (error "urgent: reaching this branch of logic after dealing with known errors." a-boolean)]))
 
-(define (main)
+(define (init-game msg))        ;; initialize the game state
+(define (update-game msg))      ;; update the game state
+(define (display-game msg))     ;; display the game state
+(define (main)                  ;; run the game. States = initializing, updating, displaying, processing, and ending
   (run-guessing-game))
 
 (main)
