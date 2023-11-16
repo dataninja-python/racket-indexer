@@ -18,6 +18,7 @@
   (define max-number 100)
   (define secret-number (random (+ max-number 1)))
   (define used-turns 0)
+  (define lost-game #f)
 
   (displayln "Welcome to the guessing game!")
   (displayln (format "I'm thinking of a number between ~a and ~a." min-number max-number))
@@ -25,8 +26,8 @@
 
   (let loop ((remaining-turns max-turns))
     (cond
-      [(= used-turns max-turns) (displayln "Last turn!")]
-      [(= used-turns (add1 max-turns)) (displayln "You lose!")]
+      [(= used-turns max-turns) (displayln "Last turn!")] ;; if used = max, this is last turn
+      [(> used-turns max-turns) (displayln "You lose!")] ;; if used > max, you lose
       [else (display-turns remaining-turns)
             (let* ((guess (get-guess))
                    (used-turns (add1 used-turns)))
@@ -48,6 +49,12 @@
 
 (define (display-turns remaining-turns)
   (displayln (format "You have ~a turns left." remaining-turns)))
+
+(define (invert-boolean a-boolean)
+  (cond
+    [(boolean? a-boolean) (not a-boolean)]
+    [(not boolean? a-boolean) (#f)]
+    [else (error "urgent: reaching this branch of logic after dealing with known errors." a-boolean)]))
 
 (define (main)
   (run-guessing-game))
