@@ -27,7 +27,9 @@
   (let loop ((remaining-turns max-turns))
     (cond
       [(= used-turns max-turns) (displayln "Last turn!")] ;; if used = max, this is last turn
-      [(> used-turns max-turns) (displayln "You lose!")] ;; if used > max, you lose
+      [(> used-turns max-turns) (begin
+        (displayln "You lose!")
+        (break))] ;; if used > max, you lose
       [else (display-turns remaining-turns)
             (let* ((guess (get-guess))
                    (used-turns (add1 used-turns)))
@@ -39,13 +41,15 @@
               (loop (sub1 remaining-turns)))])))
 
 (define (get-guess)
-  (get-user-input "What is your guess? "))
+  (get-user-input-as-number "What is your guess? "))
 
+#|
 (define (get-user-input msg)
   (begin
     (display msg)
     (let ((user-input (read-line)))
       user-input)))
+|#
 
 (define (get-user-input-as-number prompt)
   (let ((input (get-user-input prompt)))
