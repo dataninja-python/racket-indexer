@@ -18,7 +18,7 @@
   (define max-number 100)
   (define secret-number (random (+ max-number 1)))
   (define used-turns 0)
-  (define lost-game #f)
+  (define game-over #f)
 
   (displayln "Welcome to the guessing game!")
   (displayln (format "I'm thinking of a number between ~a and ~a." min-number max-number))
@@ -26,9 +26,9 @@
 
   (let loop ((remaining-turns max-turns))
     (cond
-        [(lost-game?) #f] ;; exit the game if user lost
+        [(game-over?) #f] ;; exit the game if user lost
         [(= used-turns max-turns) (displayln "Last turn!")] ;; if used = max, this is last turn
-        [(> used-turns max-turns) ((displayln "You lose!") (set! lost-game #t))] ;; if used > max, you lose
+        [(> used-turns max-turns) ((displayln "You lose!") (set! game-over #t))] ;; if used > max, you lose
         [else (display-turns remaining-turns)
             (let* ((guess (get-guess))
                    (used-turns (add1 used-turns)))
