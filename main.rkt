@@ -23,9 +23,6 @@
         (let ((user-input (read-line)))
             user-input)))
 
-(define (main)
-    (run-guessing-game))
-
 ;; run-guess-game runs the guessing game
 (define (run-guessing-game)
   (begin
@@ -37,27 +34,14 @@
 
 ;; guessing-game implements the guessing game logic
 (define (guessing-game N)
-    (begin
-        (set! turn N) ;; set the number of turns to what was returned by our funtion
-        (cond
-            [(>  turn 0) ((begin
-                (set! )))]
-            [else (diplayln "You lose!")])))
-
-
-
-
-        (define guess (get-guess))
-        (cond
-            [(equal? guess secret-number) (displayln "You win!")]
-            [(< guess secret-number) (displayln "Too low!")]
-            [(> guess secret-number) (displayln "Too high!")]
-            [else (displayln "You lose!")])
-        (guessing-game)))
+    (displayln (format "You have ~a turns left." turns))
 
 ;; get-guess gets a guess from the user
 (define (get-guess)
     (get-user-input "What is your guess? "))
 
 ;; main function runs the program
+(define (main)
+  (run-guessing-game))
+
 (main)
