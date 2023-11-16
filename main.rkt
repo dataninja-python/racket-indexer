@@ -18,33 +18,6 @@
   (define max-number 100)
   (define secret-number (random (+ max-number 1)))
   (define used-turns 0)
-  (define game-over #f)
-
-  (displayln "Welcome to the guessing game!")
-  (displayln (format "I'm thinking of a number between ~a and ~a." min-number max-number))
-  (displayln "Can you guess it?")
-
-  (loop
-    (if (game-over)
-        (break)
-        (begin
-            (displayln "play game")
-            (set! used-turns (+ used-turns 1))
-            (if (>= used-turns max-turns)
-                (set! game-over #t)
-                (displayln "keep playing!")
-            )
-        )
-     )
-  )
-)
-
-(define (run-guessing-game)
-  (define max-turns 3)
-  (define min-number 1)
-  (define max-number 100)
-  (define secret-number (random (+ max-number 1)))
-  (define used-turns 0)
   (define game-over #false) ; Changed to false
 
   (displayln "Welcome to the guessing game!")
