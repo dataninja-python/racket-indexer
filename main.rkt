@@ -2,12 +2,12 @@
 
 (define (play-game)
     ;; this function does x
-    (displayln "Hi from the play-game function")
+    (displayln "Hi from the play-game function") ;; expressions like this must be wrapped in () or risk issues
 )
 
 (define (init-game)
     ;; this function does x
-    (displayln "Hi from the init-game function")
+    (displayln "Hi from the init-game function") ;; see comment from play-game
 )
 
 ;; @problem:
