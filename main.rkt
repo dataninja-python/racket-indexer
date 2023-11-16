@@ -12,6 +12,7 @@
 (define secret-number 50)
 (define guess -1)
 (define message "Hello World")
+(define used-turns 0)
 
 ;; set global helper functions
 
@@ -30,18 +31,18 @@
     (displayln (format "I'm thinking of a number between ~a and ~a." minimum-number maximum-number))
     (displayln "Can you guess it?")
     (displayln (format "You have ~a turns to guess." turns))
-    (guessing-game turns)))
+    (guessing-game)))
 
 ;; guessing-game implements the guessing game logic
-(define (guessing-game N)
+(define (guessing-game)
     (set! guess (get-guess)) ;; get a users guess
-    (set! turns (- N 1)) ;; decrement the number of turns
+    (set! used-turns (+ used-turns 1)) ;; inrement the number of used turns
     (cond
-        [(< turns 0) (displayln "You lose!")]
-        [(= turns 0) (displayln "Last turn!")] ;; last turn
+        [(> used-turns turns) (displayln "You lose!")]
+        [(= used-turns turns) (displayln "Last turn!")] ;; last turn
         [else (displayln "play game!")])
     (displayln (format "You have ~a turns left." turns)
-    guessing-game turns))
+    (guessing-game turns)))
 
 ;; get-guess gets a guess from the user
 (define (get-guess)
