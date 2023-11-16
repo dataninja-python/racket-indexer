@@ -26,10 +26,19 @@
 
   (let loop ((remaining-turns max-turns))
     (cond
-        [(game-over) (#f)] ;; exit the game if user lost
-        [else (begin    ;; otherwise, play the game
-                   (set! game-over #t))]) ;; execute the game
-         )) ;; end of run-guessing-game
+      [(game-over) #f] ;; Exit the game if user lost
+      [(= used-turns max-turns) (displayln "Last turn!")] ;; If used = max, this is the last turn
+      [(> used-turns max-turns) (displayln "You lose!") (set! game-over #t)] ;; If used > max, you lose
+      [else (display-turns remaining-turns)
+            (let* ((guess (get-guess))
+                   (used-turns (add1 used-turns)))
+              (cond
+                [(= guess secret-number) (displayln "Congratulations! You guessed it!")
+                 (displayln (format "It took you ~a turns." used-turns))
+                 (set! game-over #t)] ;; Exit the game when guessed correctly
+                [(> guess secret-number) (displayln "Too high!")]
+                [else (displayln "Too low!")])
+              (loop (sub1 remaining-turns)))])))
 
 (define (get-guess)
   (get-user-input-as-number "What is your guess? "))
@@ -64,3 +73,5 @@
   (run-guessing-game))
 
 (main)
+
+
