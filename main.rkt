@@ -27,9 +27,7 @@
   (let loop ((remaining-turns max-turns))
     (cond
       [(= used-turns max-turns) (displayln "Last turn!")] ;; if used = max, this is last turn
-      [(> used-turns max-turns) (begin
-        (displayln "You lose!")
-        (break))] ;; if used > max, you lose
+      [(> used-turns max-turns) ((displayln "You lose!") (break))] ;; if used > max, you lose
       [else (display-turns remaining-turns)
             (let* ((guess (get-guess))
                    (used-turns (add1 used-turns)))
