@@ -4,8 +4,7 @@
 (require racket/cmdline
          racket/format
          racket/path
-         racket/list
-         loop)
+         racket/list)
 
 ;; @problem:
 ;; @solution:
