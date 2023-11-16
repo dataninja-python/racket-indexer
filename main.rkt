@@ -47,6 +47,15 @@
     (let ((user-input (read-line)))
       user-input)))
 
+(define (get-user-input-as-number prompt)
+  (let ((input (get-user-input prompt)))
+    (string->number input)))
+
+(define (get-user-input prompt)
+  (display prompt)
+  (flush-output)
+  (read-line))
+
 (define (display-turns remaining-turns)
   (displayln (format "You have ~a turns left." remaining-turns)))
 
