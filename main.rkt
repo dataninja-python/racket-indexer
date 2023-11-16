@@ -34,14 +34,14 @@
         (begin
             (set! current-turn (+ current-turn 1))
         )
-        [(> current-turn max-turns) #false] ;; game-over because out of turns
-        [(= secret)] ;; game-over because you won
-        [] ;;  still playing
-        [] ;; ERROR: this condition should never be reached
-        (begin
-          (displayln "Please enter your guess between ~a and ~a:" min-number max-number)
-          (handle-user-guess) ; Call the user input and guess checking function
-        )
+        [(> current-turn max-turns) (set! play #false)] ;; game-over because out of turns
+        [(= secret-number guess) (set! play #false)] ;; game-over because you won
+        [else ;;  still playing
+            (begin
+                (displayln "Please enter your guess between ~a and ~a:" min-number max-number)
+                (handle-user-guess) ; Call the user input and guess checking function
+            )
+        ]
     )
   )
 )
