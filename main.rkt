@@ -24,7 +24,11 @@
   (displayln (format "I'm thinking of a number between ~a and ~a." min-number max-number))
   (displayln "Can you guess it?")
 
-  (loop (if (#true? game-over))))
+  (loop
+    (if (game-over)
+        (break)
+        (displayln "play game" [(set! used-turns (+ used-turns 1))] [(> used-turns 2) (set! game-over #t)])))
+        )))
 
 
 (define (get-guess)
