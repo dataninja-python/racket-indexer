@@ -18,7 +18,7 @@
   (define max-number 100)
   (define secret-number (random (+ max-number 1)))
   (define used-turns 0)
-  (define game-over #false) ; Changed to false
+  (define game-over #false) ;; Changed to false
 
   (displayln "Welcome to the guessing game!")
   (displayln (format "I'm thinking of a number between ~a and ~a." min-number max-number))
@@ -48,7 +48,6 @@
     )
   )
 )
-
 
 (define (get-guess)
   (get-user-input-as-number "What is your guess? "))
@@ -83,5 +82,3 @@
   (run-guessing-game))
 
 (main)
-
-
