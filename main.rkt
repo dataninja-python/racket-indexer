@@ -93,9 +93,9 @@
     [(not boolean? a-boolean) (#f)]
     [else (error "urgent: reaching this branch of logic after dealing with known errors." a-boolean)]))
 
-(define (init-game msg))        ;; initialize the game state
-(define (update-game msg))      ;; update the game state
-(define (display-game msg))     ;; display the game state
+;;(define (init-game msg))        ;; initialize the game state
+;;(define (update-game msg))      ;; update the game state
+;;(define (display-game msg))     ;; display the game state
 (define (main)                  ;; run the game. States = initializing, updating, displaying, processing, and ending
   (run-guessing-game))
 
