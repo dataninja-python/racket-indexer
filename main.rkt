@@ -39,8 +39,9 @@
     (cond
         [(< turns 0) (displayln "You lose!")]
         [(= turns 0) (displayln "Last turn!")] ;; last turn
-        [else (displayln "play game!")]
-    (displayln (format "You have ~a turns left." turns))))
+        [else (displayln "play game!")])
+    (displayln (format "You have ~a turns left." turns)
+    guessing-game turns))
 
 ;; get-guess gets a guess from the user
 (define (get-guess)
