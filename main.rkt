@@ -26,7 +26,7 @@
 
   (let loop ((remaining-turns max-turns))
     (cond
-      [(game-over) #f] ;; Exit the game if user lost
+      [game-over #f] ;; Exit the game if user lost
       [(= used-turns max-turns) (displayln "Last turn!")] ;; If used = max, this is the last turn
       [(> used-turns max-turns) (displayln "You lose!") (set! game-over #t)] ;; If used > max, you lose
       [else (display-turns remaining-turns)
