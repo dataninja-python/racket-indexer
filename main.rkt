@@ -1,50 +1,63 @@
-#lang racket/base
+#lang racket
 
-(module+ test
-  (require rackunit))
+(require racket/cmdline
+         racket/format
+         racket/path
+         racket/list)
 
-;; Notice
-;; To install (from within the package directory):
-;;   $ raco pkg install
-;; To install (once uploaded to pkgs.racket-lang.org):
-;;   $ raco pkg install <<name>>
-;; To uninstall:
-;;   $ raco pkg remove <<name>>
-;; To view documentation:
-;;   $ raco docs <<name>>
-;;
-;; For your convenience, we have included LICENSE-MIT and LICENSE-APACHE files.
-;; If you would prefer to use a different license, replace those files with the
-;; desired license.
-;;
-;; Some users like to add a `private/` directory, place auxiliary files there,
-;; and require them in `main.rkt`.
-;;
-;; See the current version of the racket style guide here:
-;; http://docs.racket-lang.org/style/index.html
+;; set global variables
+(define turns 3)
+(define minimum-number 1)
+(define maximum-number 100)
+(define secret-number 50)
+(define guess -1)
+(define message "Hello World")
 
-;; Code here
+;; set global helper functions
+
+;; get-user-input gets user input
+(define (get-user-input msg)
+    (begin
+        (display msg) ;; display a prompt
+        ;;(flush-output-port) ;; display the propt immediately
+        (let ((user-input (read-line)))
+            user-input)))
+
+(define (main)
+    (run-guessing-game))
+
+;; run-guess-game runs the guessing game
+(define (run-guessing-game)
+  (begin
+    (displayln "Welcome to the guessing game!")
+    (displayln (format "I'm thinking of a number between ~a and ~a." minimum-number maximum-number))
+    (displayln "Can you guess it?")
+    (displayln (format "You have ~a turns to guess." turns))
+    (guessing-game turns)))
+
+;; guessing-game implements the guessing game logic
+(define (guessing-game N)
+    (begin
+        (set! turn N) ;; set the number of turns to what was returned by our funtion
+        (cond
+            [(>  turn 0) ((begin
+                (set! )))]
+            [else (diplayln "You lose!")])))
 
 
 
-(module+ test
-  ;; Any code in this `test` submodule runs when this file is run using DrRacket
-  ;; or with `raco test`. The code here does not run when this file is
-  ;; required by another module.
 
-  (check-equal? (+ 2 2) 4))
+        (define guess (get-guess))
+        (cond
+            [(equal? guess secret-number) (displayln "You win!")]
+            [(< guess secret-number) (displayln "Too low!")]
+            [(> guess secret-number) (displayln "Too high!")]
+            [else (displayln "You lose!")])
+        (guessing-game)))
 
-(module+ main
-  ;; (Optional) main submodule. Put code here if you need it to be executed when
-  ;; this file is run using DrRacket or the `racket` executable.  The code here
-  ;; does not run when this file is required by another module. Documentation:
-  ;; http://docs.racket-lang.org/guide/Module_Syntax.html#%28part._main-and-test%29
+;; get-guess gets a guess from the user
+(define (get-guess)
+    (get-user-input "What is your guess? "))
 
-  (require racket/cmdline)
-  (define who (box "world"))
-  (command-line
-    #:program "my-program"
-    #:once-each
-    [("-n" "--name") name "Who to say hello to" (set-box! who name)]
-    #:args ()
-    (printf "hello ~a~n" (unbox who))))
+;; main function runs the program
+(main)
