@@ -39,6 +39,43 @@
   )
 )
 
+(define (run-guessing-game)
+  (define max-turns 3)
+  (define min-number 1)
+  (define max-number 100)
+  (define secret-number (random (+ max-number 1)))
+  (define used-turns 0)
+  (define game-over #false) ; Changed to false
+
+  (displayln "Welcome to the guessing game!")
+  (displayln (format "I'm thinking of a number between ~a and ~a." min-number max-number))
+  (displayln "Can you guess it?")
+
+  (loop
+    (if game-over
+        (break)
+        (begin
+          (displayln "Please enter your guess between ~a and ~a:" min-number max-number)
+          (define user-guess (read))
+          (if (> user-guess secret-number)
+              (displayln "Your guess is too high!")
+              (if (< user-guess secret-number)
+                  (displayln "Your guess is too low!")
+                  (begin
+                    (displayln "Congratulations! You guessed the number!")
+                    (set! game-over #true)
+                  )
+              )
+          )
+          (if (= used-turns max-turns)
+              (set! game-over #true)
+              (set! used-turns (+ used-turns 1))
+          )
+        )
+    )
+  )
+)
+
 
 (define (get-guess)
   (get-user-input-as-number "What is your guess? "))
