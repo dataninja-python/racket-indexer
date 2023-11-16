@@ -24,7 +24,7 @@
   (displayln (format "I'm thinking of a number between ~a and ~a." min-number max-number))
   (displayln "Can you guess it?")
 
-  (let loop
+  (loop
     (if (game-over)
         (break)
         (begin
