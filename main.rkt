@@ -1,5 +1,8 @@
 #lang racket
 
+(define upper 100)
+(define lower 1)
+
 ;; @problem:
 ;; @solution:
 ;; @input:
