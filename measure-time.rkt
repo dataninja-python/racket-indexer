@@ -1,6 +1,6 @@
 #lang racket
 
-(require racket/runtime)
+;;(require racket/runtime)
 
 (define (measure-execution-time function-to-measure . args)
   (let* ((start-time (current-inexact-milliseconds))
