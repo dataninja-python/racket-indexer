@@ -2,6 +2,8 @@
 
 (define upper 100)
 (define lower 1)
+(define secret-number 77)
+(define current-guess 0)
 
 ;; @problem:
 ;; @problem:
@@ -10,7 +12,7 @@
 ;; @output:
 ;; @details: main runs the guessing game
 (define (guess)
-    (quotient (+ lower upper) 2)
+    (set! current-guess (quotient (+ lower upper) 2))
 )
 
 ;; @problem:
@@ -35,7 +37,27 @@
     (guess)
 )
 
-
+;; @problem:
+;; @solution:
+;; @input:
+;; @output:
+;; @details: main runs the guessing game
+(define (run-game-loop)
+    (loop
+        (display "Is it ")
+        (display current-guess)
+        (display "?")
+        (newline)
+        (display "Type 's' for smaller, 'b' for bigger, 'y' for yes: ")
+        (define response (read))
+        (cond
+            [(eq? response 's) (set! current-guess (smaller))]
+            [(eq? response 'b) (set! current-guess (bigger))]
+            [(eq? response 'y) (display "I win!")]
+            [else (display "Invalid response. Try again.")]
+        )
+    (guess))
+)
 
 ;; @problem:
 ;; @solution:
@@ -45,7 +67,7 @@
 (define (start-simple-game n m)
     (set! lower (min n m))
     (set! upper (max n m))
-    (guess)
+    (run-game-loop)
 )
 
 ;; @problem:
@@ -54,7 +76,6 @@
 ;; @output:
 ;; @details: main runs the guessing game
 (define (main)
-
     (start-simple-game 1 100)
 )
 
