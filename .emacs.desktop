@@ -1,0 +1,31 @@
+;; -*- mode: emacs-lisp; lexical-binding:t; coding: utf-8-emacs; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Sat Nov 18 03:54:09 2023
+;; Desktop file format version 208
+;; Emacs version 29.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (25944 31665 639534 0) (desktop . "208") "ajifolder@AJs-MacBook-Pro.attlocal.net" nil nil ((((minibuffer . t) (fontsize . 0) (font . "-*-Menlo-regular-normal-normal-*-12-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 2) (child-frame-border-width) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars) (foreground-color . "WhiteSmoke") (background-color . "black") (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-special-glyphs) (undecorated) (ns-appearance) (ns-transparent-titlebar) (z-group) (no-focus-on-map) (no-accept-focus) (menu-bar-lines . 1) (tab-bar-lines . 0) (tool-bar-lines . 1) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 15) (scroll-bar-height . 15) (alpha) (alpha-background) (fullscreen . fullboth) (scroll-bar-foreground . "WhiteSmoke") (scroll-bar-background . "grey75") (display-type . color) (background-mode . dark) (cursor-color . "orchid") (font-parameter) (environment) (last-focus-update . t) (mouse-color . "OrangeRed") (border-color . "gold") (frameset--id . "BAC8-11F2-6A22-CABA") (frameset--mini t . t) (height . 58) (width . 182) (modeline . t) (unsplittable) (left . 358) (top . 90) (icon-name) (visibility . t) (display . "AJs-MacBook-Pro.attlocal.net") (explicit-name) (tool-bar-position . top)) ((min-height . 4) (min-width . 10) (min-height-ignore . 3) (min-width-ignore . 7) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 56) (min-pixel-width . 70) (min-pixel-height-ignore . 42) (min-pixel-width-ignore . 49) (min-pixel-height-safe . 14) (min-pixel-width-safe . 14)) leaf (pixel-width . 1305) (pixel-height . 798) (total-width . 186) (total-height . 57) (normal-height . 1.0) (normal-width . 1.0) (buffer "main.rkt" (selected) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 3 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 956) (start . 1)) (prev-buffers ("*Customize Group: Emacs*" 1 1) ("*Custom Themes*" 1 302) ("main.rkt" 724 817) ("*GNU Emacs*" 1 1) ("*scratch*" 1 146))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/Code/Racket/dir-indexer/dir-indexer/" "/Users/ajifolder/Code/Racket/dir-indexer/dir-indexer/main.rkt"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/Users/ajifolder/Code/Racket/dir-indexer/dir-indexer/main.rkt"
+  "main.rkt"
+  'fundamental-mode
+  '(visual-line-mode font-lock-mode)
+  956
+  '(51 nil)
+  nil
+  nil
+  '((buffer-display-time 25944 31663 531747 0) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((mark-ring (724 724 724 724 763 13 724 724 724 724 1023))))
+
